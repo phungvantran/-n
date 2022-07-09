@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:FoodOrderApp.Helpers"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             Visual="Material"
+             x:Class="FoodOrderApp.Views.LoginView">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Padding="20"
+              VerticalOptions="Center"
+              RowDefinitions="Auto,*">
+            <StackLayout VerticalOptions="Center"
+                         Grid.Row="0">
+                <Image Source="https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg"
+                       WidthRequest="100"
+                       HeightRequest="300" />
+                <Label Text="Login Form"
+                       FontFamily=""
+                       TextColor="Purple"
+                       FontSize="40"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+            <StackLayout Grid.Row="1"
+                         Spacing="10">
+                <Entry Placeholder="Enter UserName"
+                       Text="{Binding UserName}" />
+                <Entry Placeholder="Enter Password"
+                       Text="{Binding Password}"
+                       IsPassword="True" />
+                <Button Text="Login"
+                        FontFamily="CabinSketch"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Purple"
+                        TextColor="White"
+                        WidthRequest="200"
+                        HeightRequest="60"
+                        Command="{Binding LoginCommand}"
+                        CornerRadius="20" />
+                <Label Text="New User: " />
+                <Button Text="Register"
+                        HorizontalOptions="Center"
+                        BackgroundColor="DarkOrange"
+                        TextColor="White"
+                        WidthRequest="200"
+                        Command="{Binding RegisterCommand}"
+                        HeightRequest="60"
+                        CornerRadius="20" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

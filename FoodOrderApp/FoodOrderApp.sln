@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodOrderApp.Android", "FoodOrderApp\FoodOrderApp.Android\FoodOrderApp.Android.csproj", "{B78CB016-BF91-4A36-A7F0-4876FAB7B621}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodOrderApp", "FoodOrderApp\FoodOrderApp\FoodOrderApp.csproj", "{BF22E69A-5F6F-4393-A10B-ADC5E6CDC439}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B78CB016-BF91-4A36-A7F0-4876FAB7B621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78CB016-BF91-4A36-A7F0-4876FAB7B621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78CB016-BF91-4A36-A7F0-4876FAB7B621}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B78CB016-BF91-4A36-A7F0-4876FAB7B621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78CB016-BF91-4A36-A7F0-4876FAB7B621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78CB016-BF91-4A36-A7F0-4876FAB7B621}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BF22E69A-5F6F-4393-A10B-ADC5E6CDC439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF22E69A-5F6F-4393-A10B-ADC5E6CDC439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF22E69A-5F6F-4393-A10B-ADC5E6CDC439}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BF22E69A-5F6F-4393-A10B-ADC5E6CDC439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF22E69A-5F6F-4393-A10B-ADC5E6CDC439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF22E69A-5F6F-4393-A10B-ADC5E6CDC439}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9231D706-CF27-4423-B705-A4614AB8C210}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FoodOrderApp.ViewModels"
+             xmlns:helpers="clr-namespace:FoodOrderApp.Helpers"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="FoodOrderApp.Views.ProductsView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="MaterialFontFamily"
+                        x:TypeArguments="x:String">
+                <On Platform="Android"
+                    Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="20,0,0,0"
+              RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+              ColumnDefinitions="*">
+
+            <Grid Grid.Row="0"
+                  RowDefinitions="Auto,Auto"
+                  ColumnDefinitions="*,Auto,Auto,Auto">
+                <Label Text="Welcome"
+                       TextColor="Silver"
+                       Grid.Row="0"
+                       Grid.Column="0" />
+                <!--Tên người dùng-->
+                <Label Text="{Binding UserName}"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       FontSize="20"
+                       FontAttributes="Bold" />
+                <!--Xem danh mục-->
+                <ImageButton Grid.Row="0"
+                             Grid.Column="1"
+                             Grid.RowSpan="2"
+                             Margin="0,0,10,0"
+                             HorizontalOptions="End"
+                             Source="{FontImage FontFamily={StaticResource MaterialFontFamily},Glyph={x:Static helpers:IconFonts.ViewList},Size=40,Color=Purple}" />
+                <!--Số sản phẩm  trong giỏ hàng-->
+                <Label Text="{Binding UserCartItemsCount}"
+                       FontSize="Subtitle"
+                       Grid.Row="0"
+                       HorizontalTextAlignment="End"
+                       VerticalTextAlignment="Start"
+                       Grid.RowSpan="2"
+                       Grid.Column="2" />
+                <!--Xem giỏ hàng-->
+                <ImageButton Grid.Row="0"
+                             Grid.Column="2"
+                             Grid.RowSpan="2"
+                             Margin="0,0,10,0"
+                             HorizontalOptions="End"
+                             Source="{FontImage FontFamily={StaticResource MaterialFontFamily},Glyph={x:Static helpers:IconFonts.Shopping},Size=40,Color=Green}"
+                             Command="{Binding ViewCartCommand}" />
+                <!--Đăng xuất-->
+                <ImageButton Grid.Row="0"
+                             Grid.Column="3"
+                             Grid.RowSpan="2"
+                             Margin="0,0,10,0"
+                             HorizontalOptions="End"
+                             Source="{FontImage FontFamily={StaticResource MaterialFontFamily},Glyph={x:Static helpers:IconFonts.Logout},Size=40,Color=Red}"
+                             Command="{Binding LogoutCommand}" />
+            </Grid>
+            <!--Thanh tìm kiếm món ăn-->
+            <Grid Grid.Row="1"
+                  Grid.Column="0"
+                  ColumnDefinitions="*,Auto">
+                <SearchBar Grid.Column="0"
+                           Placeholder="Search Food"
+                           BackgroundColor="Transparent"
+                           HorizontalOptions="Fill" />
+                <ImageButton Grid.Column="1"
+                             Source="{FontImage FontFamily={StaticResource MaterialFontFamily}, Glyph={x:Static helpers:IconFonts.SearchWeb},Size=40,Color=Black}"
+                             Margin="0,0,10,0"
+                             HorizontalOptions="End" />
+            </Grid>
+            <!--Bảng dữ liệu danh mục-->
+            <CollectionView Grid.Row="2"
+                            Margin="0,20"
+                            HeightRequest="125"
+                            ItemsSource="{Binding Cagtegories}"
+                            BackgroundColor="Red"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalScrollBarVisibility="Never"
+                            ItemsLayout="HorizontalList"
+                            SelectionChanged="CollectionView_SelectionChanged"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="0,0,15,0">
+                            <Frame HeightRequest="50"
+                                   HasShadow="False"
+                                   BackgroundColor="#feeee8"
+                                   CornerRadius="10">
+                                <Image Source="{Binding ImageUrl}" />
+
+                            </Frame>
+                            <Label Text="{Binding CategoryName}"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--Sản phảm mới nhất-->
+            <Label Text="Latest Items"
+                   Grid.Row="3"
+                   FontSize="25"
+                   FontAttributes="Bold" />
+            <!--List sản phẩm mới nhât-->
+            <CollectionView Grid.Row="4"
+                            ItemsSource="{Binding LatestItems}"
+                            Margin="0,20,10,0"
+                            VerticalOptions="Start"
+                            VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="Auto,Auto,Auto">
+                            <!--Ảnh-->
+                            <pancake:PancakeView Grid.Row="0"
+                                                 CornerRadius="20"
+                                                 Margin="0,0,10,0">
+                                <Image Source="{Binding IamgeUrl}"
+                                       HeightRequest="220"
+                                       Aspect="Fill" />
+                            </pancake:PancakeView>
+                            <!--Giá-->
+                            <Frame Grid.Row="1"
+                                   Margin="20,-80,20,70"
+                                   BackgroundColor="White"
+                                   CornerRadius="15"
+                                   HorizontalOptions="End">
+                                <Label Text="{Binding Price,StringFormat='{0:c}'}"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       HeightRequest="10" />
+                            </Frame>
+                            <!--Tên-->
+                            <Label Text="{Binding Name}"
+                                   FontSize="22"
+                                   Grid.Row="1"
+                                   FontAttributes="Bold"
+                                   VerticalTextAlignment="Center" />
+                            <!--Sao đánh giá-->
+                            <Image Grid.Row="2"
+                                   Source="Star"
+                                   HorizontalOptions="Start"
+                                   WidthRequest="20" />
+                            <!--Đánh giá-Mô tả-->
+                            <Label Grid.Row="2"
+                                   Margin="30,0,0,0"
+                                   FontSize="25"
+                                   VerticalOptions="Center">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Rating}"
+                                              FontAttributes="Bold" />
+                                        <Span Text="{Binding Description}"
+                                              TextColor="#a4a7b6" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
