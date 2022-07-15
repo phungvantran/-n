@@ -1,4 +1,6 @@
 ﻿
+using FoodOrderApp.Models;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,9 +13,12 @@ namespace FoodOrderApp.Views
         {
             InitializeComponent();
         }
-        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-        }
+            var category = e.CurrentSelection.FirstOrDefault() as Category;
+            if (category == null) return;
+            await Navigation.PushModalAsync(new CategoryView(category) );
+            ((CollectionView)sender).SelectedItem = null;
+        } 
     }
 }

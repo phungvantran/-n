@@ -84,7 +84,7 @@ namespace FoodOrderApp.ViewModels
                 Result = await userService.LoginUser(UserName, Password);
                 if (Result)
                 {
-                    Preferences.Set("UserNamr", UserName);
+                    Preferences.Set("UserName", UserName);
                     await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
                 }
                 else

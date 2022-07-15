@@ -16,3 +16,7 @@ C:\Users\84398\source\repos\FoodOrderApp\FoodOrderApp\FoodOrderApp\obj\Debug\net
 C:\Users\84398\source\repos\FoodOrderApp\FoodOrderApp\FoodOrderApp\obj\Debug\netstandard2.0\refint\FoodOrderApp.dll
 C:\Users\84398\source\repos\FoodOrderApp\FoodOrderApp\FoodOrderApp\obj\Debug\netstandard2.0\FoodOrderApp.pdb
 C:\Users\84398\source\repos\FoodOrderApp\FoodOrderApp\FoodOrderApp\obj\Debug\netstandard2.0\ref\FoodOrderApp.dll
+C:\Users\84398\source\repos\FoodOrderApp\FoodOrderApp\FoodOrderApp\obj\Debug\netstandard2.0\Views\CartView.xaml.g.cs
+C:\Users\84398\source\repos\FoodOrderApp\FoodOrderApp\FoodOrderApp\obj\Debug\netstandard2.0\Views\LogoutView.xaml.g.cs
+C:\Users\84398\source\repos\FoodOrderApp\FoodOrderApp\FoodOrderApp\obj\Debug\netstandard2.0\Views\CategoryView.xaml.g.cs
+C:\Users\84398\source\repos\FoodOrderApp\FoodOrderApp\FoodOrderApp\obj\Debug\netstandard2.0\Views\ProductDetailsView.xaml.g.cs

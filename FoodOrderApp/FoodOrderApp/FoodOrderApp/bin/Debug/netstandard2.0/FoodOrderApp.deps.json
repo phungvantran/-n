@@ -14,6 +14,7 @@
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2478",
           "Xamarin.Forms.PancakeView": "2.3.0.759",
+          "Xamarin.Forms.Svg": "1.0.3",
           "Xamarin.Forms.Visual.Material": "5.0.0.2478"
         },
         "runtime": {
@@ -57,6 +58,25 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "11.0.0.0",
             "fileVersion": "11.0.2.21924"
+          }
+        }
+      },
+      "SkiaSharp/1.60.0": {
+        "runtime": {
+          "lib/netstandard1.3/SkiaSharp.dll": {
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.0.0"
+          }
+        }
+      },
+      "SkiaSharp.Svg/1.60.0": {
+        "dependencies": {
+          "SkiaSharp": "1.60.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaSharp.Extended.Svg.dll": {
+            "assemblyVersion": "1.60.0.0",
+            "fileVersion": "1.60.0.0"
           }
         }
       },
@@ -197,6 +217,18 @@
           }
         }
       },
+      "Xamarin.Forms.Svg/1.0.3": {
+        "dependencies": {
+          "SkiaSharp.Svg": "1.60.0",
+          "Xamarin.Forms": "5.0.0.2478"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SvgImageSource.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Xamarin.Forms.Visual.Material/5.0.0.2478": {
         "dependencies": {
           "Xamarin.Forms": "5.0.0.2478"
@@ -251,6 +283,20 @@
       "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "path": "newtonsoft.json/11.0.2",
       "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+    },
+    "SkiaSharp/1.60.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HoSNIZH54rinevEhLUWdeclr+H/QdmOp252+Tt07HTXwQyvRl9eW32ga/X7T56wsR855SKprb0RcnBPRCzlqSA==",
+      "path": "skiasharp/1.60.0",
+      "hashPath": "skiasharp.1.60.0.nupkg.sha512"
+    },
+    "SkiaSharp.Svg/1.60.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTneyM6mt0w2xCCampFlkO3mGFIwGEJo7L2X3JOdyeMCZDQkyqv7m9kZfA89kLSErXErFnY72TZsryzqTIiT7g==",
+      "path": "skiasharp.svg/1.60.0",
+      "hashPath": "skiasharp.svg.1.60.0.nupkg.sha512"
     },
     "System.ComponentModel/4.3.0": {
       "type": "package",
@@ -349,6 +395,13 @@
       "sha512": "sha512-TGVsLJuGd/PKlyhmcBxZnHhHqyhYppzyrdb2q/sy+S6dQYkeGM8A+HmIIHVhbi7r8Sjasa/HRBkOmTSYQOZzhQ==",
       "path": "xamarin.forms.pancakeview/2.3.0.759",
       "hashPath": "xamarin.forms.pancakeview.2.3.0.759.nupkg.sha512"
+    },
+    "Xamarin.Forms.Svg/1.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CL2GeEGJr5cQmdJG/x4KruKpGMmQPaBjpzAFI79BJKUFCPrw2SNbvI1Uo+KdyXpXzjcSLglj80KYcD0YilrWwQ==",
+      "path": "xamarin.forms.svg/1.0.3",
+      "hashPath": "xamarin.forms.svg.1.0.3.nupkg.sha512"
     },
     "Xamarin.Forms.Visual.Material/5.0.0.2478": {
       "type": "package",

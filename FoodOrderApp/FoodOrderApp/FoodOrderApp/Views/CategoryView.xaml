@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:FoodOrderApp.Helpers"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="FoodOrderApp.Views.CategoryView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="MaterialFontFamily"
+                        x:TypeArguments="x:String">
+                <On Platform="Android"
+                    Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,*">
+            <Image Grid.Row="0"
+                   Source="{Binding SelectedCategory.CategoryPoster}"
+                   Aspect="AspectFit"
+                   VerticalOptions="Start" />
+            <Label Grid.Row="1"
+                   Text="{Binding SelectedCategory.CategoryName}"
+                   TextColor="White"
+                   FontSize="35"
+                   FontAttributes="Bold"
+                   Margin="25,-85,0,0" />
+            <!--Nút quay về-->
+            <ImageButton Source="{FontImage FontFamily={StaticResource MaterialFontFamily},Glyph={x:Static helpers:IconFonts.ArrowLeft},Size=30,Color=White}"
+                         Grid.Row="0"
+                         HorizontalOptions="Start"
+                         Aspect="AspectFit"
+                         VerticalOptions="Start"
+                         Margin="10,30"
+                         Clicked="ImageButton_Clicked" />
+            <pancake:PancakeView Grid.Row="2"
+                                 CornerRadius="30"
+                                 BackgroundColor="White"
+                                 Margin="0,-40">
+                <Grid Padding="25,30"
+                      RowDefinitions="Auto,*"
+                      ColumnDefinitions="*,Auto">
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           Text="{Binding TotalFoodItems,StringFormat='{0} Total Items'}"
+                           FontSize="18"
+                           FontAttributes="Bold" />
+                    <Image Grid.Row="0"
+                           Grid.Column="1"
+                           Source="More"
+                           HeightRequest="20" />
+
+                    <!--List item-->
+                    <CollectionView ItemsSource="{Binding FoodItemsByCategory}"
+                                    VerticalOptions="Start"
+                                    VerticalScrollBarVisibility="Never"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    SelectionMode="Single"
+                                    SelectionChanged="CollectionView_SelectionChanged">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame HasShadow="False"
+                                           BackgroundColor="#fef6f2"
+                                           HeightRequest="90"
+                                           CornerRadius="20"
+                                           Margin="0,10">
+                                        <Grid RowDefinitions="*,*,*"
+                                              ColumnDefinitions="Auto,*,Auto">
+                                            <!--Ảnh-->
+                                            <pancake:PancakeView Grid.Row="0"
+                                                                 Grid.Column="0"
+                                                                 Grid.RowSpan="3"
+                                                                 Margin="0,0,10,0"
+                                                                 CornerRadius="12">
+                                                <Image Source="{Binding ImageUrl}"
+                                                       HeightRequest="100"
+                                                       WidthRequest="95"
+                                                       Aspect="AspectFill" />
+                                            </pancake:PancakeView>
+                                            <!--Tên-->
+                                            <Label Text="{Binding Name}"
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   Grid.ColumnSpan="2"
+                                                   FontSize="15"
+                                                   FontAttributes="Bold" />
+                                            <!--Mô tả ngắn gọn-->
+                                            <Label Text="{Binding Description}"
+                                                   Grid.Row="1"
+                                                   Grid.Column="1"
+                                                   Grid.ColumnSpan="2"
+                                                   FontSize="15"
+                                                   TextColor="#a4a7b6" />
+                                            <!--Sao-->
+                                            <Image Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   Source="Star"
+                                                   HorizontalOptions="Start"
+                                                   WidthRequest="20" />
+                                            <!--Đánh giá-->
+                                            <Label Grid.Row="2" 
+                                                   Grid.Column="1"
+                                                   FontSize="15"
+                                                   VerticalOptions="Center"
+                                                   Margin="30,0,0,0">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding Rating}"
+                                                              FontAttributes="Bold" />
+                                                        <Span Text="{Binding RatingDetail}"
+                                                              TextColor="#a4a7b6" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <!--Yêu thích-->
+                                            <Image Grid.Column="2"
+                                                   Grid.Row="0"
+                                                   HeightRequest="15"
+                                                   WidthRequest="30"
+                                                   Source="{Binding HomeSelected}" />
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
